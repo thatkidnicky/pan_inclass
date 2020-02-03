@@ -14,7 +14,6 @@ class Database
     public $conn;
 
     private function __construct(){
-        
         $db_dsn = array(
             'host'    => $this->host,
             'dbname'  => $this->db_name,
@@ -39,20 +38,19 @@ class Database
             );
             exit;
         }
-        
     }
-
+    
     // get the database connection
     public function getConnection()
-    {
+    {   
         return $this->conn;
     }
 
-    public static function getInstance() {
+    public static function getInstance(){
         if(!self::$instance){
             self::$instance = new Database();
-    }
+        }
 
-    return self::$instance;
-}
+        return self::$instance;
+    }
 }
